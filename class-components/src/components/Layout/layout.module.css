@@ -1,0 +1,17 @@
+.wrapper {
+  color: #fff5ee;
+  overflow-x: hidden;
+  background-image: url('../../assets/light.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.wrapper-dark {
+  background-image: url('../../assets/dark.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  color: #c5c3de;
+}

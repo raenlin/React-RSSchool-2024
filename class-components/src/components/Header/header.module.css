@@ -6,7 +6,8 @@
   justify-content: center;
 }
 
-.theme-button {
+.theme-button,
+.theme-button__dark {
   cursor: pointer;
   height: 25px;
   width: 100px;
@@ -33,4 +34,13 @@
 
 .theme-button__dark:hover {
   background: #1b0e96;
+}
+
+.heading {
+  color: #fff5ee;
+  text-align: center;
+}
+
+.heading-dark {
+  color: #c5c3de;
 }

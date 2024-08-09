@@ -6,7 +6,8 @@
   gap: 10px;
 }
 
-.search-inner__input {
+.search-inner__input,
+.search-inner__input-dark {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -21,7 +22,9 @@
 }
 
 .search-inner__button,
-.search-inner__button-error {
+.search-inner__button-error,
+.search-inner__button-dark,
+.search-inner__button-error__dark {
   cursor: pointer;
   height: 38px;
   width: 100px;

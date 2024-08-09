@@ -1,14 +1,26 @@
 import { useState } from 'react';
 
-export const useSearchQuery = (key: string, initialValue: string) => {
-  const [searchQuery, setSearchQuery] = useState<string>(() => {
-    const savedQuery = localStorage.getItem(key);
-    return savedQuery !== null ? savedQuery : initialValue;
+const useLocalStorage = (key, initialValue) => {
+  const [state, setState] = useState(() => {
+    try {
+      const value = window.localStorage.getItem(key);
+      return value ? JSON.parse(value) : initialValue;
+    } catch (error) {
+      console.log(error);
+    }
   });
 
-  function setLocalStorageValue(newValue: string) {
-    localStorage.setItem(key, newValue);
-  }
+  const setValue = (value) => {
+    try {
+      const valueToStore = value instanceof Function ? value(state) : value;
+      window.localStorage.setItem(key, JSON.stringify(valueToStore));
+      setState(value);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  return [searchQuery, setSearchQuery, setLocalStorageValue] as const;
+  return [state, setValue];
 };
+
+export default useLocalStorage;

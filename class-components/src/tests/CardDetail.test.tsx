@@ -2,7 +2,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import CardDetails from '../components/Card/CardDetail';
+import CardDetails from '../pages/planets/[CardDetail]';
 import { vi } from 'vitest';
 import { ThemeContext } from '../contexts/theme';
 

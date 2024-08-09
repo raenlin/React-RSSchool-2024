@@ -4,20 +4,23 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "lint": "eslint --ext .ts,.js,.tsx,.jsx src/",
     "lint:fix": "eslint --fix --ext .ts,.js,.tsx,.jsx src/",
     "prepare": "cd .. && husky class-components/.husky",
     "format": "prettier --write .",
     "format:fix": "prettier --check .",
     "preview": "vite preview",
     "test": "vitest run",
-    "coverage": "vitest --coverage"
+    "coverage": "vitest --coverage",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.6",
     "file-saver": "^2.0.5",
+    "next": "^14.2.5",
+    "next-query-params": "^5.0.0",
     "papaparse": "^5.4.1",
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
@@ -29,6 +32,7 @@
     "use-query-params": "^2.2.1"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^14.2.5",
     "@testing-library/dom": "^10.3.1",
     "@testing-library/jest-dom": "^6.4.6",
     "@testing-library/react": "^16.0.0",
@@ -43,6 +47,7 @@
     "@vitejs/plugin-react": "^4.3.1",
     "@vitest/coverage-v8": "^2.0.2",
     "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.5",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-prettier": "^5.1.3",

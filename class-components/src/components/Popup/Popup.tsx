@@ -1,4 +1,4 @@
-import './Popup.css';
+import styles from './Popup.module.css';
 import { useDispatch } from 'react-redux';
 import { PopupProps } from './Popup.type';
 import { AppDispatch } from '../../store/store';
@@ -26,21 +26,21 @@ export function Popup({ selectedCards }: PopupProps) {
 
   if (selectedCards.length) {
     return (
-      <div className="popup" data-testid="popup">
+      <div className={styles.popup} data-testid="popup">
         <h3>{selectedCards.length} items are selected:</h3>
         {selectedCards.map((card) => (
           <li key={card.name}>{card.name}</li>
         ))}
-        <div className="popup-buttons">
+        <div className={styles['popup-buttons']}>
           <button
-            className={`${theme === 'light' ? 'popup-button popup-button__dark' : 'popup-button'}`}
+            className={`${theme === 'light' ? styles['popup-button__dark'] : styles['popup-button']}`}
             onClick={unselectHandler}
           >
             Unselect all
           </button>
 
           <button
-            className={`${theme === 'light' ? 'popup-button popup-button__dark' : 'popup-button'}`}
+            className={`${theme === 'light' ? styles['popup-button__dark'] : styles['popup-button']}`}
             onClick={handleFileLoad}
           >
             Download

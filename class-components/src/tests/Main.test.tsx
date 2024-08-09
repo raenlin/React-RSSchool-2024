@@ -1,6 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Main from '../view/Main/main';
+import Main from '../components/Main/main';
 import { Planet } from '../utils/types';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';

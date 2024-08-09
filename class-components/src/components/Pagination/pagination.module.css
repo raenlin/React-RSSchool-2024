@@ -1,0 +1,25 @@
+.pagination {
+  max-width: 300px;
+  margin: auto;
+}
+
+.pagination-list {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pagination-list__item,
+.pagination-list__item-active {
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.pagination-list__item-active {
+  padding-bottom: 9px;
+  padding-left: 11px;
+  padding-right: 11px;
+  font-weight: 700;
+  border: 1px solid #fff5ee;
+  border-radius: 5px;
+}

@@ -1,11 +1,13 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
-export function NotFound() {
+function NotFound() {
   return (
     <div>
       <h1>Oops!</h1>
       <p>Sorry, an unexpected error has occurred.</p>
-      <Link to="/">Main</Link>
+      <Link href="/">Main</Link>
     </div>
   );
 }
+
+export default NotFound;

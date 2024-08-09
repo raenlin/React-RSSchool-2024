@@ -4,15 +4,6 @@
   margin-bottom: 20px;
 }
 
-.card {
-  display: flex;
-  gap: 5px;
-}
-
-.card-checkbox {
-  cursor: pointer;
-}
-
 .main-list {
   width: 500px;
   margin: 0 auto;
@@ -40,27 +31,4 @@
 
 .main-list__item-inner {
   padding: 10px;
-}
-
-.pagination {
-  max-width: 300px;
-  margin: auto;
-}
-
-.pagination-list {
-  padding: 0;
-  display: flex;
-  justify-content: space-between;
-}
-
-.pagination-list__item {
-  cursor: pointer;
-  padding: 2px 8px;
-  font-size: 1.5rem;
-}
-
-.pagination-list__item.active {
-  font-weight: 700;
-  border: 1px solid #fff5ee;
-  border-radius: 5px;
 }

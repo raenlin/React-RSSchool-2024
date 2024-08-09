@@ -1,0 +1,8 @@
+.card {
+  display: flex;
+  gap: 5px;
+}
+
+.card-checkbox {
+  cursor: pointer;
+}

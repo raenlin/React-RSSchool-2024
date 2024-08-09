@@ -1,23 +1,22 @@
-import './CardDetail.css';
-import { useNavigate, useParams } from 'react-router-dom';
+import styles from './CardDetail.module.css';
 import { useContext } from 'react';
 import { ThemeContext } from '../../contexts/theme';
 import { Planet } from '../../utils/types';
 import { planetsApi } from '../../store/planetsApi';
+import { useRouter } from 'next/router';
 
 function CardDetails() {
-  const params = useParams<{ id: string }>();
-  const id = params?.id;
+  const router = useRouter();
+  const id = router.query.CardDetail as string;
   const { theme } = useContext(ThemeContext);
 
   const { data, error, isLoading } = planetsApi.useGetPlanetsQuery({
     search: id ? id : '',
   });
   const items: Planet[] = data ? data.results : [];
-  const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/?search=&page=1`);
+    router.push(`/`);
   };
 
   if (!items) {
@@ -31,9 +30,9 @@ function CardDetails() {
   return (
     <>
       {isLoading ? (
-        <div className="loader"></div>
+        <div className={styles.loader}></div>
       ) : (
-        <div className="card-details">
+        <div className={styles['card-details']}>
           {items.map((item) => (
             <div key={item.name}>
               <h2>{item.name}</h2>
@@ -61,5 +60,9 @@ function CardDetails() {
     </>
   );
 }
+
+// CardDetails.getLayout = function getLayout(CardDetails: ReactNode) {
+//   return <planets>{CardDetails}</planets>;
+// };
 
 export default CardDetails;

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { vi } from 'vitest';
 import { ThemeContext } from '../contexts/theme';
-import Header from '../view/Header/header';
+import Header from '../components/Header/header';
 
 describe('Header Component', () => {
   const mockHandleThemeChange = vi.fn();

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Footer from '../view/Footer/footer';
+import Footer from '../components/Footer/footer';
 
 describe('Footer Component', () => {
   it('renders the footer with correct inner content', () => {

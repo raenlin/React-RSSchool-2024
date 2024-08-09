@@ -1,41 +1,34 @@
-import './search.css';
+import styles from './Search.module.css';
 import { ChangeEvent, useContext, useState } from 'react';
-import Button from '../../components/Button/Button';
-import Input from '../../components/Input/Input';
+import Button from '../Button/Button';
+import Input from '../Input/Input';
 import { SearchProp } from './Search.type';
-import { useNavigate } from 'react-router-dom';
-import { useSearchQuery } from '../../utils/localStorageHook';
+import useLocalStorage from '../../utils/localStorageHook';
 import { ThemeContext } from '../../contexts/theme';
 
 function Search({ onSearch, setquery }: SearchProp) {
   const [input, setInput] = useState('');
   const [error, setError] = useState(false);
-  const [searchParams, setSearchParams] = useState('');
-  const [query, setQuery, setLocalStorageValue] = useSearchQuery('searchPlanet', '');
+  const [value, setValue] = useLocalStorage('searchPlanet', '');
 
   const { theme } = useContext(ThemeContext);
 
-  const navigate = useNavigate();
-
   const handleClick = () => {
     const searchText = input.trim();
-    setLocalStorageValue(searchText);
+    setValue(searchText);
     if (input) {
       onSearch(input.trim());
-      navigate(`/planets/${searchParams}`);
     } else {
       onSearch('');
       const defaultQuery = { search: '', page: 1 };
       setquery(defaultQuery);
-      navigate(`/?search=${defaultQuery.search}&page=${defaultQuery.page}`);
     }
     setInput('');
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchParams(event.target.value);
     setInput(event.target.value);
-    setQuery(event.target.value);
+    setValue(event.target.value);
   };
 
   const handleError = () => setError(true);
@@ -44,22 +37,22 @@ function Search({ onSearch, setquery }: SearchProp) {
     throw new Error('I crashed!');
   } else {
     return (
-      <section className="search">
-        <div className="search-inner">
+      <section className={styles.search}>
+        <div className={styles['search-inner']}>
           <Input
-            value={query}
+            value={value}
             type="text"
-            className={`${theme === 'light' ? 'search-inner__input search-inner__input-dark' : 'search-inner__input'}`}
+            className={`${theme === 'light' ? styles['search-inner__input-dark'] : styles['search-inner__input']}`}
             placeholder="Type planet to search..."
             onChange={handleChange}
           />
           <Button
-            className={`${theme === 'light' ? 'search-inner__button search-inner__button-dark' : 'search-inner__button'}`}
+            className={`${theme === 'light' ? styles['search-inner__button-dark'] : styles['search-inner__button']}`}
             onClick={handleClick}
             name="Search"
           />
           <button
-            className={`${theme === 'light' ? 'search-inner__button-error search-inner__button-error__dark' : 'search-inner__button-error'}`}
+            className={`${theme === 'light' ? styles['search-inner__button-error__dark'] : styles['search-inner__button-error']}`}
             onClick={handleError}
           >
             Error!

@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { expect, test, vi } from 'vitest';
-import Search from '../view/Search/search';
+import Search from '../components/Search/search';
 
 vi.mock('../../utils/localStorageHook', () => ({
   useSearchQuery: vi.fn().mockReturnValue(['', vi.fn(), vi.fn()]),
